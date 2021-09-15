@@ -27,6 +27,11 @@ class MainTabController: UITabBarController {
         let notifications = NotificationsController()
         let conversations = ConversationsController()
         
+        feed.tabBarItem.image = UIImage(named: "home_unselected")
+        explore.tabBarItem.image = UIImage(named: "search_unselected")
+        notifications.tabBarItem.image = UIImage(named: "like_unselected")
+        conversations.tabBarItem.image = UIImage(named: "mail")
+        
         viewControllers = [feed, explore, notifications, conversations]
     }
 }
