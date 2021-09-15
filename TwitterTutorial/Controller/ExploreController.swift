@@ -15,6 +15,8 @@ class ExploreController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .systemBlue
     }
     
     // MARK: - Helpers
