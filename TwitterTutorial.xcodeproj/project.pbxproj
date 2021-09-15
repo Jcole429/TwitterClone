@@ -18,6 +18,7 @@
 		B4201E4726F2365200249531 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E4626F2365200249531 /* NotificationsController.swift */; };
 		B4201E4926F2365C00249531 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E4826F2365C00249531 /* ConversationsController.swift */; };
 		B4201E4B26F2826300249531 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E4A26F2826300249531 /* Extensions.swift */; };
+		B4201E4E26F28A0900249531 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E4D26F28A0900249531 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B4201E4626F2365200249531 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		B4201E4826F2365C00249531 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		B4201E4A26F2826300249531 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B4201E4D26F28A0900249531 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		B4201E3A26F2334400249531 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B4201E4C26F289FB00249531 /* Authentication */,
 				B4201E4026F2344C00249531 /* MainTabController.swift */,
 				B4201E4226F2360300249531 /* FeedController.swift */,
 				B4201E4426F2364A00249531 /* ExploreController.swift */,
@@ -128,6 +131,14 @@
 				B4201E4A26F2826300249531 /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B4201E4C26F289FB00249531 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				B4201E4D26F28A0900249531 /* LoginController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 				B4201E4526F2364A00249531 /* ExploreController.swift in Sources */,
 				B4201E2726F232CE00249531 /* SceneDelegate.swift in Sources */,
 				B4201E4126F2344C00249531 /* MainTabController.swift in Sources */,
+				B4201E4E26F28A0900249531 /* LoginController.swift in Sources */,
 				B4201E4326F2360300249531 /* FeedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
