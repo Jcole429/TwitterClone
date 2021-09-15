@@ -56,6 +56,12 @@
 		B4201E2326F232CE00249531 /* TwitterTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				B4201E3D26F2334900249531 /* Model */,
+				B4201E3C26F2334700249531 /* View */,
+				B4201E3B26F2334600249531 /* ViewModel */,
+				B4201E3A26F2334400249531 /* Controller */,
+				B4201E3826F2333700249531 /* API */,
+				B4201E3F26F2337100249531 /* Utils */,
 				B4201E2426F232CE00249531 /* AppDelegate.swift */,
 				B4201E2626F232CE00249531 /* SceneDelegate.swift */,
 				B4201E2826F232CE00249531 /* ViewController.swift */,
@@ -65,6 +71,48 @@
 				B4201E3226F232D100249531 /* Info.plist */,
 			);
 			path = TwitterTutorial;
+			sourceTree = "<group>";
+		};
+		B4201E3826F2333700249531 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B4201E3A26F2334400249531 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B4201E3B26F2334600249531 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4201E3C26F2334700249531 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4201E3D26F2334900249531 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B4201E3F26F2337100249531 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
