@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  TwitterTutorial
+//  TwitterClone
 //
 //  Created by Justin Cole on 9/15/21.
 //
