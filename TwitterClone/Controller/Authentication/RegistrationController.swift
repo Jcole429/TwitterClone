@@ -103,6 +103,8 @@ class RegistrationController: UIViewController {
     @objc func handleRegistration() {
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
+        guard let fullname = fullnameTextField.text else {return}
+        guard let username = usernameTextField.text else {return}
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
@@ -110,7 +112,15 @@ class RegistrationController: UIViewController {
                 return
             }
             
-            print("DEBUG: Successfully registered user")
+            guard let uid = result?.user.uid else {return}
+            
+            let values = ["email": email, "username": username, "fullname": fullname]
+            
+            let userDatabaseRef = Database.database().reference().child("users").child(uid)
+            
+            userDatabaseRef.updateChildValues(values) { error, ref in
+                print("DEBUG: Successfully updated user information")
+            }
         }
     }
     
