@@ -19,6 +19,7 @@
 		B4201E4926F2365C00249531 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E4826F2365C00249531 /* ConversationsController.swift */; };
 		B4201E4B26F2826300249531 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E4A26F2826300249531 /* Extensions.swift */; };
 		B4201E4E26F28A0900249531 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E4D26F28A0900249531 /* LoginController.swift */; };
+		B4201E5026F28A9C00249531 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E4F26F28A9C00249531 /* RegistrationController.swift */; };
 		B4201E5226F2988500249531 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E5126F2988500249531 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		B4201E4826F2365C00249531 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		B4201E4A26F2826300249531 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B4201E4D26F28A0900249531 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		B4201E4F26F28A9C00249531 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		B4201E5126F2988500249531 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				B4201E4D26F28A0900249531 /* LoginController.swift */,
+				B4201E4F26F28A9C00249531 /* RegistrationController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				B4201E2726F232CE00249531 /* SceneDelegate.swift in Sources */,
 				B4201E4126F2344C00249531 /* MainTabController.swift in Sources */,
 				B4201E4E26F28A0900249531 /* LoginController.swift in Sources */,
+				B4201E5026F28A9C00249531 /* RegistrationController.swift in Sources */,
 				B4201E4326F2360300249531 /* FeedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
