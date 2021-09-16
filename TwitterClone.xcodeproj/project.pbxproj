@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B4201E2126F232CE00249531 /* TwitterTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4201E2126F232CE00249531 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4201E2426F232CE00249531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4201E2626F232CE00249531 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B4201E2B26F232CE00249531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		B4201E1826F232CE00249531 = {
 			isa = PBXGroup;
 			children = (
-				B4201E2326F232CE00249531 /* TwitterTutorial */,
+				B4201E2326F232CE00249531 /* TwitterClone */,
 				B4201E2226F232CE00249531 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,12 +64,12 @@
 		B4201E2226F232CE00249531 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4201E2126F232CE00249531 /* TwitterTutorial.app */,
+				B4201E2126F232CE00249531 /* TwitterClone.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B4201E2326F232CE00249531 /* TwitterTutorial */ = {
+		B4201E2326F232CE00249531 /* TwitterClone */ = {
 			isa = PBXGroup;
 			children = (
 				B4201E3D26F2334900249531 /* Model */,
@@ -85,7 +85,7 @@
 				B4201E2F26F232D100249531 /* LaunchScreen.storyboard */,
 				B4201E3226F232D100249531 /* Info.plist */,
 			);
-			path = TwitterTutorial;
+			path = TwitterClone;
 			sourceTree = "<group>";
 		};
 		B4201E3826F2333700249531 /* API */ = {
@@ -150,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B4201E2026F232CE00249531 /* TwitterTutorial */ = {
+		B4201E2026F232CE00249531 /* TwitterClone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B4201E3526F232D100249531 /* Build configuration list for PBXNativeTarget "TwitterTutorial" */;
+			buildConfigurationList = B4201E3526F232D100249531 /* Build configuration list for PBXNativeTarget "TwitterClone" */;
 			buildPhases = (
 				B4201E1D26F232CE00249531 /* Sources */,
 				B4201E1E26F232CE00249531 /* Frameworks */,
@@ -162,9 +162,9 @@
 			);
 			dependencies = (
 			);
-			name = TwitterTutorial;
+			name = TwitterClone;
 			productName = TwitterTutorial;
-			productReference = B4201E2126F232CE00249531 /* TwitterTutorial.app */;
+			productReference = B4201E2126F232CE00249531 /* TwitterClone.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -181,7 +181,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B4201E1C26F232CE00249531 /* Build configuration list for PBXProject "TwitterTutorial" */;
+			buildConfigurationList = B4201E1C26F232CE00249531 /* Build configuration list for PBXProject "TwitterClone" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -194,7 +194,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B4201E2026F232CE00249531 /* TwitterTutorial */,
+				B4201E2026F232CE00249531 /* TwitterClone */,
 			);
 		};
 /* End PBXProject section */
@@ -381,7 +381,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.TwitterTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.TwitterClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,7 +400,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.TwitterTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.TwitterClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -410,7 +410,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B4201E1C26F232CE00249531 /* Build configuration list for PBXProject "TwitterTutorial" */ = {
+		B4201E1C26F232CE00249531 /* Build configuration list for PBXProject "TwitterClone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4201E3326F232D100249531 /* Debug */,
@@ -419,7 +419,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4201E3526F232D100249531 /* Build configuration list for PBXNativeTarget "TwitterTutorial" */ = {
+		B4201E3526F232D100249531 /* Build configuration list for PBXNativeTarget "TwitterClone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4201E3626F232D100249531 /* Debug */,
