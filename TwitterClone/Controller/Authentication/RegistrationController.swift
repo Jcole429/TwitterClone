@@ -13,6 +13,7 @@ class RegistrationController: UIViewController {
     // MARK: - Properties
     
     private let imagePicker = UIImagePickerController()
+    private var profileImage: UIImage?
     
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -101,25 +102,54 @@ class RegistrationController: UIViewController {
     }
     
     @objc func handleRegistration() {
+        guard let profileImage = profileImage else {
+            print("DEBUG: Please select a profile image...")
+            return
+        }
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         guard let fullname = fullnameTextField.text else {return}
         guard let username = usernameTextField.text else {return}
         
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+        var user_values = ["email": email, "username": username, "fullname": fullname]
+        
+        // Get image data and create filename
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else {return}
+        let filename = NSUUID().uuidString
+        let storageRef = STORAGE_PROFILE_IMAGES_REF.child(filename)
+        
+        // Upload the image to firebase
+        storageRef.putData(imageData, metadata: nil) { meta, error in
             if let error = error {
-                print("DEBUG: Error is \(error.localizedDescription)")
+                print("DEBUG: Error uploading image: \(error.localizedDescription)")
                 return
             }
-            
-            guard let uid = result?.user.uid else {return}
-            
-            let values = ["email": email, "username": username, "fullname": fullname]
-            
-            let userDatabaseRef = USERS_REF.child(uid)
-            
-            userDatabaseRef.updateChildValues(values) { error, ref in
-                print("DEBUG: Successfully updated user information")
+            storageRef.downloadURL { url, error in
+                if let error = error {
+                    print("DEBUG: Error downloading image url: \(error.localizedDescription)")
+                    return
+                }
+                
+                let profileImageUrl = url?.absoluteString
+                user_values["profileImageUrl"] = profileImageUrl
+                
+                Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                    if let error = error {
+                        print("DEBUG: Error creating user: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    guard let uid = result?.user.uid else {return}
+                    let userDatabaseRef = DB_USERS_REF.child(uid)
+                    
+                    userDatabaseRef.updateChildValues(user_values) { error, ref in
+                        if let error = error {
+                            print("DEBUG: Error updating child values: \(error.localizedDescription)")
+                            return
+                        }
+                        print("DEBUG: Successfully updated user information")
+                    }
+                }
             }
         }
     }
@@ -153,6 +183,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         guard var profileImage = info[.editedImage] as? UIImage else {return}
         
         profileImage = profileImage.withRenderingMode(.alwaysOriginal)
+        self.profileImage = profileImage
         
         self.plusPhotoButton.setImage(profileImage, for: .normal)
         self.plusPhotoButton.layer.borderColor = UIColor.white.cgColor
