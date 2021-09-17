@@ -99,3 +99,13 @@ extension UIColor {
     
     static let twitterBlue = UIColor.rgb(red: 29, green: 161, blue: 242)
 }
+
+// MARK: - UIViewController
+
+extension UIViewController {
+    func configureMainTabController() {
+        guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else {return}
+        guard let tab = window.rootViewController as? MainTabController else {return}
+        tab.authenticateUserAndConfigureUI()
+    }
+}

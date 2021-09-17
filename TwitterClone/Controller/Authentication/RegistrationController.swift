@@ -114,8 +114,11 @@ class RegistrationController: UIViewController {
         let credentials = AuthCredentials(email: email, username: username, password: password, fullname: fullname, profileImage: profileImage)
         
         AuthService.shared.registerUser(credentials: credentials) { error, DatabaseReference in
-            print("DEBUG: Sign up successful...")
-            print("DEBUG: Handle update user interface here")
+            if let error = error {
+                print("DEBUG: Error registering user: \(error)")
+            }
+            self.configureMainTabController()
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
