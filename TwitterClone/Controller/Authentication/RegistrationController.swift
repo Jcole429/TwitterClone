@@ -111,46 +111,11 @@ class RegistrationController: UIViewController {
         guard let fullname = fullnameTextField.text else {return}
         guard let username = usernameTextField.text else {return}
         
-        var user_values = ["email": email, "username": username, "fullname": fullname]
+        let credentials = AuthCredentials(email: email, username: username, password: password, fullname: fullname, profileImage: profileImage)
         
-        // Get image data and create filename
-        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else {return}
-        let filename = NSUUID().uuidString
-        let storageRef = STORAGE_PROFILE_IMAGES_REF.child(filename)
-        
-        // Upload the image to firebase
-        storageRef.putData(imageData, metadata: nil) { meta, error in
-            if let error = error {
-                print("DEBUG: Error uploading image: \(error.localizedDescription)")
-                return
-            }
-            storageRef.downloadURL { url, error in
-                if let error = error {
-                    print("DEBUG: Error downloading image url: \(error.localizedDescription)")
-                    return
-                }
-                
-                let profileImageUrl = url?.absoluteString
-                user_values["profileImageUrl"] = profileImageUrl
-                
-                Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                    if let error = error {
-                        print("DEBUG: Error creating user: \(error.localizedDescription)")
-                        return
-                    }
-                    
-                    guard let uid = result?.user.uid else {return}
-                    let userDatabaseRef = DB_USERS_REF.child(uid)
-                    
-                    userDatabaseRef.updateChildValues(user_values) { error, ref in
-                        if let error = error {
-                            print("DEBUG: Error updating child values: \(error.localizedDescription)")
-                            return
-                        }
-                        print("DEBUG: Successfully updated user information")
-                    }
-                }
-            }
+        AuthService.shared.registerUser(credentials: credentials) { error, DatabaseReference in
+            print("DEBUG: Sign up successful...")
+            print("DEBUG: Handle update user interface here")
         }
     }
     
