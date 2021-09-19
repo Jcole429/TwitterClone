@@ -25,6 +25,8 @@
 		B4201E5826F38D8100249531 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4201E5726F38D8100249531 /* GoogleService-Info.plist */; };
 		B4201E5A26F3DAB600249531 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E5926F3DAB600249531 /* Constants.swift */; };
 		B4201E5C26F4245100249531 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E5B26F4245100249531 /* AuthService.swift */; };
+		B4201E5E26F5840C00249531 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E5D26F5840C00249531 /* UserService.swift */; };
+		B4201E6026F7966E00249531 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E5F26F7966E00249531 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		B4201E5726F38D8100249531 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B4201E5926F3DAB600249531 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B4201E5B26F4245100249531 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B4201E5D26F5840C00249531 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B4201E5F26F7966E00249531 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				B4201E5B26F4245100249531 /* AuthService.swift */,
+				B4201E5D26F5840C00249531 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 		B4201E3D26F2334900249531 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B4201E5F26F7966E00249531 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4201E5E26F5840C00249531 /* UserService.swift in Sources */,
 				B4201E4726F2365200249531 /* NotificationsController.swift in Sources */,
 				B4201E4926F2365C00249531 /* ConversationsController.swift in Sources */,
 				B4201E5226F2988500249531 /* Utilities.swift in Sources */,
@@ -302,6 +309,7 @@
 				B4201E4B26F2826300249531 /* Extensions.swift in Sources */,
 				B4201E4526F2364A00249531 /* ExploreController.swift in Sources */,
 				B4201E5C26F4245100249531 /* AuthService.swift in Sources */,
+				B4201E6026F7966E00249531 /* User.swift in Sources */,
 				B4201E2726F232CE00249531 /* SceneDelegate.swift in Sources */,
 				B4201E4126F2344C00249531 /* MainTabController.swift in Sources */,
 				B4201E4E26F28A0900249531 /* LoginController.swift in Sources */,
