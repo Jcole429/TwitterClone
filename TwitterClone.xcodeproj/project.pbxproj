@@ -31,6 +31,8 @@
 		B4201E6426F7CC2600249531 /* CaptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E6326F7CC2600249531 /* CaptionTextView.swift */; };
 		B4201E6626F7D61500249531 /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E6526F7D61500249531 /* TweetService.swift */; };
 		B4201E6826F7D99800249531 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E6726F7D99800249531 /* Tweet.swift */; };
+		B4201E6A26F7E99700249531 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E6926F7E99700249531 /* TweetCell.swift */; };
+		B4201E6C26F7EF9E00249531 /* TweetCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E6B26F7EF9E00249531 /* TweetCellButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		B4201E6326F7CC2600249531 /* CaptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTextView.swift; sourceTree = "<group>"; };
 		B4201E6526F7D61500249531 /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
 		B4201E6726F7D99800249531 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		B4201E6926F7E99700249531 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		B4201E6B26F7EF9E00249531 /* TweetCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				B4201E6326F7CC2600249531 /* CaptionTextView.swift */,
+				B4201E6926F7E99700249531 /* TweetCell.swift */,
+				B4201E6B26F7EF9E00249531 /* TweetCellButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,8 +326,10 @@
 				B4201E5226F2988500249531 /* Utilities.swift in Sources */,
 				B4201E2526F232CE00249531 /* AppDelegate.swift in Sources */,
 				B4201E4B26F2826300249531 /* Extensions.swift in Sources */,
+				B4201E6A26F7E99700249531 /* TweetCell.swift in Sources */,
 				B4201E4526F2364A00249531 /* ExploreController.swift in Sources */,
 				B4201E5C26F4245100249531 /* AuthService.swift in Sources */,
+				B4201E6C26F7EF9E00249531 /* TweetCellButton.swift in Sources */,
 				B4201E6226F7C08200249531 /* UploadTweetController.swift in Sources */,
 				B4201E6026F7966E00249531 /* User.swift in Sources */,
 				B4201E2726F232CE00249531 /* SceneDelegate.swift in Sources */,
