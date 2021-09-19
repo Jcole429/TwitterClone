@@ -19,7 +19,7 @@ class RegistrationController: UIViewController {
         let button = UIButton(type: .system)
         button.setDimensions(width: 128, height: 128)
         button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
-        button.layer.cornerRadius = 128/2
+        button.makeCircle(sideLength: 128)
         button.layer.masksToBounds = true
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.clipsToBounds = true
