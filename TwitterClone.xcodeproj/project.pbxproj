@@ -35,6 +35,7 @@
 		B4201E6C26F7EF9E00249531 /* TweetCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E6B26F7EF9E00249531 /* TweetCellButton.swift */; };
 		B4201E6E26F8D70F00249531 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E6D26F8D70F00249531 /* TweetViewModel.swift */; };
 		B4201E7026F8DEB800249531 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E6F26F8DEB800249531 /* ProfileController.swift */; };
+		B4201E7226F8F8C400249531 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E7126F8F8C400249531 /* ProfileHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		B4201E6B26F7EF9E00249531 /* TweetCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellButton.swift; sourceTree = "<group>"; };
 		B4201E6D26F8D70F00249531 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 		B4201E6F26F8DEB800249531 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		B4201E7126F8F8C400249531 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				B4201E6326F7CC2600249531 /* CaptionTextView.swift */,
 				B4201E6926F7E99700249531 /* TweetCell.swift */,
 				B4201E6B26F7EF9E00249531 /* TweetCellButton.swift */,
+				B4201E7126F8F8C400249531 /* ProfileHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				B4201E2526F232CE00249531 /* AppDelegate.swift in Sources */,
 				B4201E4B26F2826300249531 /* Extensions.swift in Sources */,
 				B4201E6A26F7E99700249531 /* TweetCell.swift in Sources */,
+				B4201E7226F8F8C400249531 /* ProfileHeader.swift in Sources */,
 				B4201E4526F2364A00249531 /* ExploreController.swift in Sources */,
 				B4201E7026F8DEB800249531 /* ProfileController.swift in Sources */,
 				B4201E5C26F4245100249531 /* AuthService.swift in Sources */,
