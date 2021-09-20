@@ -26,6 +26,7 @@ class ProfileHeader: UICollectionReusableView {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "baseline_arrow_back_white_24dp"), for: .normal)
         button.addTarget(self, action: #selector(handleDismissal), for: .touchUpInside)
+        button.tintColor = .white
         return button
     }()
     
