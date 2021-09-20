@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TweetCell: UICollectionViewCell {
     
@@ -51,6 +52,12 @@ class TweetCell: UICollectionViewCell {
     }()
     
     private let infoLabel = UILabel()
+    
+    var tweet: Tweet? {
+        didSet {
+            configure()
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -111,4 +118,11 @@ class TweetCell: UICollectionViewCell {
     
     
     // MARK: - Helpers
+    
+    func configure() {
+        guard let tweet = tweet else {return}
+        infoLabel.text = tweet.user.username
+        captionLabel.text = tweet.caption
+        profileImageView.sd_setImage(with: tweet.user.profileImageUrl, completed: nil)
+    }
 }

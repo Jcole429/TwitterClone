@@ -42,7 +42,7 @@ class MainTabController: UITabBarController {
     // MARK: - API
     
     func fetchUser() {
-        UserService.shared.fetchUser { user in
+        UserService.shared.fetchCurrentUser { user in
             self.user = user
         }
     }
