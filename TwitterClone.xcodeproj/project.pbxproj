@@ -39,6 +39,7 @@
 		B4201E7426F9035F00249531 /* ProfileFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E7326F9035F00249531 /* ProfileFilterView.swift */; };
 		B4201E7626F904B600249531 /* ProfileFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E7526F904B600249531 /* ProfileFilterCell.swift */; };
 		B4201E7826F910EB00249531 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E7726F910EB00249531 /* ProfileHeaderViewModel.swift */; };
+		B4201E7A26F9243A00249531 /* ProfileFilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E7926F9243A00249531 /* ProfileFilterOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		B4201E7326F9035F00249531 /* ProfileFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterView.swift; sourceTree = "<group>"; };
 		B4201E7526F904B600249531 /* ProfileFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterCell.swift; sourceTree = "<group>"; };
 		B4201E7726F910EB00249531 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
+		B4201E7926F9243A00249531 /* ProfileFilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			children = (
 				B4201E5F26F7966E00249531 /* User.swift */,
 				B4201E6726F7D99800249531 /* Tweet.swift */,
+				B4201E7926F9243A00249531 /* ProfileFilterOptions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4201E7A26F9243A00249531 /* ProfileFilterOptions.swift in Sources */,
 				B4201E5E26F5840C00249531 /* UserService.swift in Sources */,
 				B4201E4726F2365200249531 /* NotificationsController.swift in Sources */,
 				B4201E6426F7CC2600249531 /* CaptionTextView.swift in Sources */,
