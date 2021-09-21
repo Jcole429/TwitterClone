@@ -29,7 +29,7 @@ class LoginController: UIViewController {
     }()
     
     private let emailTextField: UITextField = {
-        let tf = Utilities().textField(withPlaceholder: "Username")
+        let tf = Utilities().textField(withPlaceholder: "Email")
         return tf
     }()
     
