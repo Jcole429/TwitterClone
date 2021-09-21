@@ -39,4 +39,11 @@ struct UserService {
             completion(users)
         }
     }
+    
+    func followUser(uid: String, completion: @escaping(Error?, DatabaseReference) -> Void) {
+        let currentUid = UserService.shared.fetchCurrentUserUid()
+        DB_USER_FOLLOWING_REF.child(currentUid).updateChildValues([uid: 0]) { error, ref in
+            DB_USER_FOLLOWERS_REF.child(uid).updateChildValues([currentUid: 0], withCompletionBlock: completion)
+        }
+    }
 }
