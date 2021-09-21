@@ -14,6 +14,7 @@ struct User {
     let username: String
     var profileImageUrl: URL?
     let uid: String
+    var isFollowed = false
     
     var isCurrentUser: Bool { return UserService.shared.fetchCurrentUserUid() == self.uid }
     
