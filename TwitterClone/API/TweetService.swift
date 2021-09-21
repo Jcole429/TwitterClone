@@ -45,7 +45,6 @@ struct TweetService {
     func fetchTweets(forUser user: User, completion: @escaping([Tweet]) -> Void) {
         var tweets = [Tweet]()
         DB_USER_TWEETS_REF.child(user.uid).observe(.childAdded) { snapshot in
-            print("DEBUG: \(snapshot)")
             let tweetID = snapshot.key
             
             DB_TWEETS_REF.child(tweetID).observeSingleEvent(of: .value) { snapshot in
