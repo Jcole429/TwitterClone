@@ -15,7 +15,7 @@ struct User {
     var profileImageUrl: URL?
     let uid: String
     
-    var isCurrentUser: Bool { return Auth.auth().currentUser?.uid == self.uid }
+    var isCurrentUser: Bool { return UserService.shared.fetchCurrentUserUid() == self.uid }
     
     init(uid: String, dictionary: [String: AnyObject]) {
         self.uid = uid

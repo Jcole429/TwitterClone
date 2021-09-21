@@ -11,7 +11,7 @@ struct TweetService {
     static let shared = TweetService()
     
     func uploadTweet(caption: String, completion: @escaping(Error?, DatabaseReference) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let uid = UserService.shared.fetchCurrentUserUid()
         
         let values = ["uid": uid,
                       "timestamp": Int(NSDate().timeIntervalSince1970),
