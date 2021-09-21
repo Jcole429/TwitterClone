@@ -14,7 +14,11 @@ class ProfileController: UICollectionViewController {
     
     // MARK: - Properties
     
-    private var user: User
+    private var user: User {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     private var tweets = [Tweet]() {
         didSet {
@@ -38,6 +42,7 @@ class ProfileController: UICollectionViewController {
         configureCollectionView()
         checkIfUserIsFollowed()
         fetchTweets()
+        fetchUserStats()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +62,12 @@ class ProfileController: UICollectionViewController {
     func checkIfUserIsFollowed() {
         UserService.shared.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
             self.user.isFollowed = isFollowed
-            self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchUserStats() {
+        UserService.shared.fetchUserStats(uid: user.uid) { stats in
+            self.user.stats = stats
         }
     }
     
@@ -119,13 +129,13 @@ extension ProfileController: ProfileHeaderDelegate {
         
         if self.user.isFollowed {
             UserService.shared.unfollowUser(uid: user.uid) { ref, error in
+                self.fetchUserStats()
                 self.user.isFollowed = false
-                self.collectionView.reloadData()
             }
         } else {
             UserService.shared.followUser(uid: user.uid) { ref, error in
+                self.fetchUserStats()
                 self.user.isFollowed = true
-                self.collectionView.reloadData()
             }
         }
     }

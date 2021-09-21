@@ -15,6 +15,7 @@ struct User {
     var profileImageUrl: URL?
     let uid: String
     var isFollowed = false
+    var stats: UserRelationStats?
     
     var isCurrentUser: Bool { return UserService.shared.fetchCurrentUserUid() == self.uid }
     
@@ -25,4 +26,9 @@ struct User {
         self.username = dictionary["username"] as? String ?? ""
         self.profileImageUrl = URL(string: dictionary["profileImageUrl"] as! String)
     }
+}
+
+struct UserRelationStats {
+    var followers: Int
+    var following: Int
 }
