@@ -37,7 +37,7 @@ class FeedController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barStyle = .default
-        navigationController?.navigationBar.isHidden = false
+//        navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - API
@@ -51,7 +51,7 @@ class FeedController: UICollectionViewController {
     // MARK: - Helpers
     
     func configureUI() {
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.backgroundColor = .white
@@ -60,7 +60,6 @@ class FeedController: UICollectionViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.setDimensions(width: 44, height: 44)
         navigationItem.titleView = imageView
-        
     }
     
     func configureLeftBarButton() {
