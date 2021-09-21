@@ -40,6 +40,7 @@
 		B4201E7626F904B600249531 /* ProfileFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E7526F904B600249531 /* ProfileFilterCell.swift */; };
 		B4201E7826F910EB00249531 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E7726F910EB00249531 /* ProfileHeaderViewModel.swift */; };
 		B4201E7A26F9243A00249531 /* ProfileFilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4201E7926F9243A00249531 /* ProfileFilterOptions.swift */; };
+		B42556B626FA213600069D55 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556B526FA213600069D55 /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		B4201E7526F904B600249531 /* ProfileFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterCell.swift; sourceTree = "<group>"; };
 		B4201E7726F910EB00249531 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		B4201E7926F9243A00249531 /* ProfileFilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterOptions.swift; sourceTree = "<group>"; };
+		B42556B526FA213600069D55 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				B4201E7126F8F8C400249531 /* ProfileHeader.swift */,
 				B4201E7326F9035F00249531 /* ProfileFilterView.swift */,
 				B4201E7526F904B600249531 /* ProfileFilterCell.swift */,
+				B42556B526FA213600069D55 /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				B4201E7026F8DEB800249531 /* ProfileController.swift in Sources */,
 				B4201E5C26F4245100249531 /* AuthService.swift in Sources */,
 				B4201E6C26F7EF9E00249531 /* TweetCellButton.swift in Sources */,
+				B42556B626FA213600069D55 /* UserCell.swift in Sources */,
 				B4201E6226F7C08200249531 /* UploadTweetController.swift in Sources */,
 				B4201E7626F904B600249531 /* ProfileFilterCell.swift in Sources */,
 				B4201E6E26F8D70F00249531 /* TweetViewModel.swift in Sources */,
