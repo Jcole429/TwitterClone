@@ -9,6 +9,33 @@ import UIKit
 
 class TweetHeader: UICollectionReusableView {
     
+    // MARK: - UI Constants
+    
+    private static var profileImageSideLength: CGFloat = 48
+    private static var userInfoStackSpacing: CGFloat = 12
+    private static var userInfoStackPaddingTop: CGFloat = 16
+    private static var userInfoStackPaddingLeft: CGFloat = 16
+    private static var captionLabelPaddingTop: CGFloat = 12
+    private static var captionLabelPaddingLeft: CGFloat = 16
+    private static var captionLabelPaddingRight: CGFloat = 16
+    private static var dateLabelPaddingLeft: CGFloat = 16
+    private static var dateLabelPaddingTop: CGFloat = 20
+    private static var statsViewPaddingTop: CGFloat = 12
+    private static var statsViewHeight: CGFloat = 40
+    private static var actionStackPaddingTop: CGFloat = 8
+    private static var actionStackButtonSideLength: CGFloat = 20
+    private static var labelStackSpacing: CGFloat = -6
+    private static var fullnameLabelFontSize: CGFloat = 14
+    private static var usernameLabelFontSize: CGFloat = 14
+    private static var fullnameLabelHeight: CGFloat = Utilities().calculateSizeOfOneLineLabel(withFontSize: fullnameLabelFontSize).height
+    private static var usernameLabelHeight: CGFloat = Utilities().calculateSizeOfOneLineLabel(withFontSize: usernameLabelFontSize).height
+    
+    static var captionFontSize: CGFloat = 20
+    
+    static var captionUnusableWidth: CGFloat = captionLabelPaddingLeft + captionLabelPaddingRight
+    
+    static var captionUnusableHeight: CGFloat = profileImageSideLength + userInfoStackPaddingTop + captionLabelPaddingTop + dateLabelPaddingTop + statsViewPaddingTop + statsViewHeight + actionStackPaddingTop + actionStackButtonSideLength
+    
     // MARK: - Properties
     
     var tweet: Tweet? {
@@ -21,8 +48,8 @@ class TweetHeader: UICollectionReusableView {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.setDimensions(width: 48, height: 48)
-        iv.makeCircle(sideLength: 48)
+        iv.setDimensions(width: TweetHeader.profileImageSideLength, height: TweetHeader.profileImageSideLength)
+        iv.makeCircle(sideLength: TweetHeader.profileImageSideLength)
         iv.backgroundColor = .twitterBlue
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileImageTapped))
@@ -35,20 +62,20 @@ class TweetHeader: UICollectionReusableView {
     
     private let fullnameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: TweetHeader.fullnameLabelFontSize)
         return label
     }()
     
     private let usernameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: TweetHeader.usernameLabelFontSize)
         label.textColor = .lightGray
         return label
     }()
     
     private let captionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: TweetHeader.captionFontSize)
         label.numberOfLines = 0
         return label
     }()
@@ -98,25 +125,25 @@ class TweetHeader: UICollectionReusableView {
     }()
     
     private lazy var commentButton: UIButton = {
-        let button = createButton(withImageName: "comment")
+        let button = actionStackButton(withImageName: "comment")
         button.addTarget(self, action: #selector(handleCommentTapped), for: .touchUpInside)
         return button
     }()
     
     private lazy var retweetButton: UIButton = {
-        let button = createButton(withImageName: "retweet")
+        let button = actionStackButton(withImageName: "retweet")
         button.addTarget(self, action: #selector(handleRetweetTapped), for: .touchUpInside)
         return button
     }()
     
     private lazy var likeButton: UIButton = {
-        let button = createButton(withImageName: "like")
+        let button = actionStackButton(withImageName: "like")
         button.addTarget(self, action: #selector(handleLikeTapped), for: .touchUpInside)
         return button
     }()
     
     private lazy var shareButton: UIButton = {
-        let button = createButton(withImageName: "share")
+        let button = actionStackButton(withImageName: "share")
         button.addTarget(self, action: #selector(handleShareTapped), for: .touchUpInside)
         return button
     }()
@@ -129,27 +156,27 @@ class TweetHeader: UICollectionReusableView {
         
         let labelStack = UIStackView(arrangedSubviews: [fullnameLabel, usernameLabel])
         labelStack.axis = .vertical
-        labelStack.spacing = -6
+        labelStack.spacing = TweetHeader.labelStackSpacing
         
-        let stack = UIStackView(arrangedSubviews: [profileImageView, labelStack])
-        stack.spacing = 12
-        stack.axis = .horizontal
+        let userInfoStack = UIStackView(arrangedSubviews: [profileImageView, labelStack])
+        userInfoStack.spacing = TweetHeader.userInfoStackSpacing
+        userInfoStack.axis = .horizontal
         
-        addSubview(stack)
-        stack.anchor(top: topAnchor, left: leftAnchor, paddingTop: 16, paddingLeft: 16)
+        addSubview(userInfoStack)
+        userInfoStack.anchor(top: topAnchor, left: leftAnchor, paddingTop: TweetHeader.userInfoStackPaddingTop, paddingLeft: TweetHeader.userInfoStackPaddingLeft)
         
         addSubview(captionLabel)
-        captionLabel.anchor(top: stack.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 20, paddingLeft: 16, paddingRight: 16)
+        captionLabel.anchor(top: userInfoStack.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: TweetHeader.captionLabelPaddingTop, paddingLeft: TweetHeader.captionLabelPaddingLeft, paddingRight: TweetHeader.captionLabelPaddingRight)
         
         addSubview(dateLabel)
-        dateLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingTop: 20, paddingLeft: 16)
+        dateLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingTop: TweetHeader.dateLabelPaddingTop, paddingLeft: TweetHeader.dateLabelPaddingLeft)
         
         addSubview(optionsButton)
-        optionsButton.centerY(inView: stack)
+        optionsButton.centerY(inView: userInfoStack)
         optionsButton.anchor(right: rightAnchor, paddingRight: 8)
         
         addSubview(statsView)
-        statsView.anchor(top: dateLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 20, height: 40)
+        statsView.anchor(top: dateLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: TweetHeader.statsViewPaddingTop, height: TweetHeader.statsViewHeight)
         
         let actionStack = UIStackView(arrangedSubviews: [commentButton, retweetButton, likeButton, shareButton])
         actionStack.spacing = 72
@@ -157,7 +184,7 @@ class TweetHeader: UICollectionReusableView {
         
         addSubview(actionStack)
         actionStack.centerX(inView: self)
-        actionStack.anchor(top: statsView.bottomAnchor, paddingTop: 8)
+        actionStack.anchor(top: statsView.bottomAnchor, bottom: bottomAnchor, paddingTop: TweetHeader.actionStackPaddingTop)
     }
     
     required init?(coder: NSCoder) {
@@ -206,11 +233,11 @@ class TweetHeader: UICollectionReusableView {
         profileImageView.sd_setImage(with: viewModel.profileImageUrl, completed: nil)
     }
     
-    func createButton(withImageName imageName: String) -> UIButton {
+    func actionStackButton(withImageName imageName: String) -> UIButton {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: imageName), for: .normal)
         button.tintColor = .darkGray
-        button.setDimensions(width: 20, height: 20)
+        button.setDimensions(width: TweetHeader.actionStackButtonSideLength, height: TweetHeader.actionStackButtonSideLength)
         return button
     }
 }

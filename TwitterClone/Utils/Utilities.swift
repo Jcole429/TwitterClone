@@ -50,4 +50,19 @@ class Utilities {
         
         return button
     }
+    
+    func calculateSizeOfLabel(forWidth width: CGFloat, withFontSize fontSize: CGFloat, withText text: String) -> CGSize {
+        let measurementLabel = UILabel()
+        measurementLabel.text = text
+        measurementLabel.font = UIFont.systemFont(ofSize: fontSize)
+        measurementLabel.numberOfLines = 0
+        measurementLabel.lineBreakMode = .byWordWrapping
+        measurementLabel.translatesAutoresizingMaskIntoConstraints = false
+        measurementLabel.widthAnchor.constraint(equalToConstant: width).isActive = true
+        return measurementLabel.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+    }
+    
+    func calculateSizeOfOneLineLabel(withFontSize fontSize: CGFloat) -> CGSize{
+        return calculateSizeOfLabel(forWidth: 100, withFontSize: fontSize, withText: "text")
+    }
 }

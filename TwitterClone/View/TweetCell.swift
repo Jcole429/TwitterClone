@@ -14,6 +14,27 @@ protocol TweetCellDelegate: AnyObject {
 
 class TweetCell: UICollectionViewCell {
     
+    // MARK: - UI Constants
+    
+    private static var profileImageSideLength: CGFloat = 48
+    private static var profileImagePaddingLeft: CGFloat = 8
+    private static var captionStackPaddingLeft: CGFloat = 12
+    private static var captionStackPaddingRight: CGFloat = 12
+    
+    private static var infoLabelPaddingTop: CGFloat = 8
+    private static var infoLabelHeight: CGFloat = Utilities().calculateSizeOfOneLineLabel(withFontSize: 14).height
+    private static var captionStackSpacing: CGFloat = 4
+    private static var actionStackPaddingTop: CGFloat = 12
+    private static var actionStackPaddingBottom: CGFloat = 8
+    private static var dividerHeight: CGFloat = 1
+    private static var dividerPaddingTop: CGFloat = 8
+    
+    static var captionFontSize: CGFloat = 14
+    
+    static var captionUnusableWidth: CGFloat = profileImageSideLength + profileImagePaddingLeft + captionStackPaddingLeft + captionStackPaddingRight
+    
+    static var captionUnusableHeight: CGFloat = infoLabelPaddingTop + infoLabelHeight + captionStackSpacing + actionStackPaddingTop + TweetCellButton.buttonSideLength + actionStackPaddingBottom + dividerPaddingTop + dividerHeight
+    
     // MARK: - Properties
     
     weak var delegate: TweetCellDelegate?
@@ -22,8 +43,8 @@ class TweetCell: UICollectionViewCell {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.setDimensions(width: 48, height: 48)
-        iv.makeCircle(sideLength: 48)
+        iv.setDimensions(width: TweetCell.profileImageSideLength, height: TweetCell.profileImageSideLength)
+        iv.makeCircle(sideLength: TweetCell.profileImageSideLength)
         iv.backgroundColor = .twitterBlue
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileImageTapped))
@@ -36,7 +57,7 @@ class TweetCell: UICollectionViewCell {
     
     private let captionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: captionFontSize)
         label.numberOfLines = 0
         label.text = "Test tweet"
         return label
@@ -79,17 +100,17 @@ class TweetCell: UICollectionViewCell {
         backgroundColor = .white
         
         addSubview(profileImageView)
-        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
+        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: TweetCell.infoLabelPaddingTop, paddingLeft: TweetCell.profileImagePaddingLeft)
         
-        let stack = UIStackView(arrangedSubviews: [infoLabel, captionLabel])
-        stack.axis = .vertical
-        stack.distribution = .fillProportionally
-        stack.spacing = 4
+        let captionStack = UIStackView(arrangedSubviews: [infoLabel, captionLabel])
+        captionStack.axis = .vertical
+        captionStack.distribution = .fillProportionally
+        captionStack.spacing = TweetCell.captionStackSpacing
         
-        addSubview(stack)
-        stack.anchor(top: profileImageView.topAnchor, left: profileImageView.rightAnchor, right: rightAnchor, paddingLeft: 12, paddingRight: 12)
+        addSubview(captionStack)
+        captionStack.anchor(top: topAnchor, left: profileImageView.rightAnchor, right: rightAnchor, paddingLeft: TweetCell.captionStackPaddingLeft, paddingRight: TweetCell.captionStackPaddingRight)
         
-        infoLabel.font = UIFont.systemFont(ofSize: 14)
+        infoLabel.font = UIFont.systemFont(ofSize: TweetCell.captionFontSize)
         
         let actionStack = UIStackView(arrangedSubviews: [commentButton, retweetButton, likeButton, shareButton])
         actionStack.axis = .horizontal
@@ -97,12 +118,12 @@ class TweetCell: UICollectionViewCell {
         
         addSubview(actionStack)
         actionStack.centerX(inView: self)
-        actionStack.anchor(bottom: bottomAnchor, paddingBottom: 8)
+        actionStack.anchor(top: captionStack.bottomAnchor, paddingTop: TweetCell.actionStackPaddingTop, paddingBottom: TweetCell.actionStackPaddingBottom)
         
         let underlineView = UIView()
         underlineView.backgroundColor = .systemGroupedBackground
         addSubview(underlineView)
-        underlineView.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 1)
+        underlineView.anchor(top: actionStack.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: TweetCell.dividerPaddingTop, height: TweetCell.dividerHeight)
     }
     
     required init?(coder: NSCoder) {

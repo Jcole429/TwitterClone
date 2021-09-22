@@ -68,10 +68,25 @@ extension TweetController {
 extension TweetController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 250)
+                
+        let captionUsableWidth = view.frame.width - TweetHeader.captionUnusableWidth
+        
+        let captionHeight = Utilities().calculateSizeOfLabel(forWidth: captionUsableWidth, withFontSize: TweetHeader.captionFontSize, withText: tweet.caption).height
+        
+        let headerCellHeight = captionHeight + TweetHeader.captionUnusableHeight
+        
+        return CGSize(width: view.frame.width, height: headerCellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
+//        let tweet = tweets[indexPath.row]
+        
+        let captionUsableWidth = view.frame.width - TweetCell.captionUnusableWidth
+        
+        let captionHeight = Utilities().calculateSizeOfLabel(forWidth: captionUsableWidth, withFontSize: TweetCell.captionFontSize, withText: tweet.caption).height
+        
+        let tweetCellHeight = captionHeight + TweetCell.captionUnusableHeight
+        
+        return CGSize(width: view.frame.width, height: tweetCellHeight)
     }
 }

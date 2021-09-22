@@ -9,11 +9,13 @@ import UIKit
 
 class TweetCellButton: UIButton {
     
+    static var buttonSideLength: CGFloat = 20
+    
     init(imageName: String) {
         super.init(frame: .zero)
         setImage(UIImage(named: imageName), for: .normal)
         tintColor = .darkGray
-        setDimensions(width: 20, height: 20)
+        setDimensions(width: TweetCellButton.buttonSideLength, height: TweetCellButton.buttonSideLength)
     }
     
     required init?(coder: NSCoder) {
