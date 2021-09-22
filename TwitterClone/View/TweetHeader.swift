@@ -11,6 +11,12 @@ class TweetHeader: UICollectionReusableView {
     
     // MARK: - Properties
     
+    var tweet: Tweet? {
+        didSet {
+            configure()
+        }
+    }
+    
     private lazy var profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -29,14 +35,12 @@ class TweetHeader: UICollectionReusableView {
     
     private let fullnameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Fullname"
         label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
     
     private let usernameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Username"
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = .lightGray
         return label
@@ -44,7 +48,6 @@ class TweetHeader: UICollectionReusableView {
     
     private let captionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Caption daksdjaoskdoas dasoi nasoidn oaisn iodas"
         label.font = UIFont.systemFont(ofSize: 20)
         label.numberOfLines = 0
         return label
@@ -52,7 +55,6 @@ class TweetHeader: UICollectionReusableView {
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Date here"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textAlignment = .left
         label.textColor = .lightGray
@@ -67,19 +69,9 @@ class TweetHeader: UICollectionReusableView {
         return button
     }()
     
-    private lazy var retweetsLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "2 Retweets"
-        return label
-    }()
+    private lazy var retweetsLabel = UILabel()
     
-    private lazy var likesLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "2 Likes"
-        return label
-    }()
+    private lazy var likesLabel = UILabel()
     
     private lazy var statsView: UIView = {
         let view = UIView()
@@ -199,6 +191,20 @@ class TweetHeader: UICollectionReusableView {
     }
     
     // MARK: - Helpers
+    
+    func configure() {
+        guard let tweet = tweet else {return}
+        
+        let viewModel = TweetViewModel(tweet: tweet)
+        
+        captionLabel.text = tweet.caption
+        fullnameLabel.text = tweet.user.fullname
+        usernameLabel.text = viewModel.usernameText
+        dateLabel.text = viewModel.headerTimestamp
+        likesLabel.attributedText = viewModel.likesAttributedString
+        retweetsLabel.attributedText = viewModel.retweetsAttributedString
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl, completed: nil)
+    }
     
     func createButton(withImageName imageName: String) -> UIButton {
         let button = UIButton(type: .system)
