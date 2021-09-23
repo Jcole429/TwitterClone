@@ -45,6 +45,7 @@
 		B42556BA26FA998B00069D55 /* TweetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556B926FA998B00069D55 /* TweetHeader.swift */; };
 		B42556BC26FBF74B00069D55 /* UploadTweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BB26FBF74B00069D55 /* UploadTweetViewModel.swift */; };
 		B42556BE26FCE9BB00069D55 /* ActionSheetLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BD26FCE9BB00069D55 /* ActionSheetLauncher.swift */; };
+		B42556C026FD0CAC00069D55 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		B42556B926FA998B00069D55 /* TweetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetHeader.swift; sourceTree = "<group>"; };
 		B42556BB26FBF74B00069D55 /* UploadTweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetViewModel.swift; sourceTree = "<group>"; };
 		B42556BD26FCE9BB00069D55 /* ActionSheetLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLauncher.swift; sourceTree = "<group>"; };
+		B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				B4201E7526F904B600249531 /* ProfileFilterCell.swift */,
 				B42556B526FA213600069D55 /* UserCell.swift */,
 				B42556B926FA998B00069D55 /* TweetHeader.swift */,
+				B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				B42556BE26FCE9BB00069D55 /* ActionSheetLauncher.swift in Sources */,
 				B4201E5226F2988500249531 /* Utilities.swift in Sources */,
 				B4201E2526F232CE00249531 /* AppDelegate.swift in Sources */,
+				B42556C026FD0CAC00069D55 /* ActionSheetCell.swift in Sources */,
 				B4201E4B26F2826300249531 /* Extensions.swift in Sources */,
 				B4201E6A26F7E99700249531 /* TweetCell.swift in Sources */,
 				B4201E7426F9035F00249531 /* ProfileFilterView.swift in Sources */,
