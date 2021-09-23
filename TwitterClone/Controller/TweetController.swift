@@ -102,7 +102,6 @@ extension TweetController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let tweet = tweets[indexPath.row]
         
         let captionUsableWidth = view.frame.width - TweetCell.captionUnusableWidth
         
@@ -132,6 +131,20 @@ extension TweetController: TweetHeaderDelegate {
 
 extension TweetController: ActionSheetLauncherDelegate {
     func didSelect(option: ActionSheetOptions) {
-        print("DEBUG: Option in controller is \(option.description)")
+        switch option {
+        case .follow(let user):
+            UserService.shared.followUser(uid: user.uid) { error, ref in
+                print("DEBUG: Followed \(user.username)")
+            }
+        case .unfollow(let user):
+            UserService.shared.unfollowUser(uid: user.uid) { error, ref in
+                print("DEBUG: Unfollowed \(user.username)")
+            }
+        case .report:
+            print("DEBUG: Report tweet")
+            
+        case .delete:
+            print("DEBUG: Delete tweet")
+        }
     }
 }
