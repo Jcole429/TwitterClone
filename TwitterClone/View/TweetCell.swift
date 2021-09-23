@@ -10,6 +10,7 @@ import SDWebImage
 
 protocol TweetCellDelegate: AnyObject {
     func handleProfileImageTapped(_ cell: TweetCell)
+    func handleReplyTapped(_ cell: TweetCell)
 }
 
 class TweetCell: UICollectionViewCell {
@@ -65,7 +66,7 @@ class TweetCell: UICollectionViewCell {
     
     private lazy var commentButton: TweetCellButton = {
         let button = TweetCellButton(imageName: "comment")
-        button.addTarget(self, action: #selector(handleCommentTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleReplyTapped), for: .touchUpInside)
         return button
     }()
     private lazy var retweetButton: TweetCellButton = {
@@ -136,8 +137,8 @@ class TweetCell: UICollectionViewCell {
         delegate?.handleProfileImageTapped(self)
     }
     
-    @objc func handleCommentTapped() {
-        print("DEBUG: Handling")
+    @objc func handleReplyTapped() {
+        delegate?.handleReplyTapped(self)
     }
     
     @objc func handleRetweetTapped() {

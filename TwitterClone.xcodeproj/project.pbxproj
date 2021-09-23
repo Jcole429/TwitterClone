@@ -43,6 +43,7 @@
 		B42556B626FA213600069D55 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556B526FA213600069D55 /* UserCell.swift */; };
 		B42556B826FA978100069D55 /* TweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556B726FA978100069D55 /* TweetController.swift */; };
 		B42556BA26FA998B00069D55 /* TweetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556B926FA998B00069D55 /* TweetHeader.swift */; };
+		B42556BC26FBF74B00069D55 /* UploadTweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BB26FBF74B00069D55 /* UploadTweetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		B42556B526FA213600069D55 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		B42556B726FA978100069D55 /* TweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetController.swift; sourceTree = "<group>"; };
 		B42556B926FA998B00069D55 /* TweetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetHeader.swift; sourceTree = "<group>"; };
+		B42556BB26FBF74B00069D55 /* UploadTweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			children = (
 				B4201E6D26F8D70F00249531 /* TweetViewModel.swift */,
 				B4201E7726F910EB00249531 /* ProfileHeaderViewModel.swift */,
+				B42556BB26FBF74B00069D55 /* UploadTweetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				B4201E7826F910EB00249531 /* ProfileHeaderViewModel.swift in Sources */,
 				B4201E7026F8DEB800249531 /* ProfileController.swift in Sources */,
 				B4201E5C26F4245100249531 /* AuthService.swift in Sources */,
+				B42556BC26FBF74B00069D55 /* UploadTweetViewModel.swift in Sources */,
 				B4201E6C26F7EF9E00249531 /* TweetCellButton.swift in Sources */,
 				B42556B626FA213600069D55 /* UserCell.swift in Sources */,
 				B4201E6226F7C08200249531 /* UploadTweetController.swift in Sources */,

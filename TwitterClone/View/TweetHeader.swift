@@ -126,7 +126,7 @@ class TweetHeader: UICollectionReusableView {
     
     private lazy var commentButton: UIButton = {
         let button = actionStackButton(withImageName: "comment")
-        button.addTarget(self, action: #selector(handleCommentTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleReplyTapped), for: .touchUpInside)
         return button
     }()
     
@@ -201,7 +201,7 @@ class TweetHeader: UICollectionReusableView {
         
     }
     
-    @objc func handleCommentTapped() {
+    @objc func handleReplyTapped() {
         
     }
     
