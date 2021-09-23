@@ -55,7 +55,7 @@ class TweetController: UICollectionViewController {
     }
     
     fileprivate func showActionSheetHelper(forUser user: User) {
-        actionSheetLauncher = ActionSheetLauncher(user: tweet.user)
+        actionSheetLauncher = ActionSheetLauncher(user: user)
         actionSheetLauncher.delegate = self
         actionSheetLauncher.show()
     }
