@@ -53,6 +53,12 @@ class TweetController: UICollectionViewController {
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(TweetHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
     }
+    
+    fileprivate func showActionSheetHelper(forUser user: User) {
+        actionSheetLauncher = ActionSheetLauncher(user: tweet.user)
+        actionSheetLauncher.delegate = self
+        actionSheetLauncher.show()
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -108,18 +114,24 @@ extension TweetController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - TweetHeaderDelegate
+
 extension TweetController: TweetHeaderDelegate {
     func showActionSheet() {
         if tweet.user.isCurrentUser {
-            actionSheetLauncher = ActionSheetLauncher(user: tweet.user)
-            actionSheetLauncher.show()
+            showActionSheetHelper(forUser: tweet.user)
         } else {
             UserService.shared.checkIfUserIsFollowed(uid: tweet.user.uid) { isFollowed in
                 var user = self.tweet.user
                 user.isFollowed = isFollowed
-                self.actionSheetLauncher = ActionSheetLauncher(user: user)
-                self.actionSheetLauncher.show()
+                self.showActionSheetHelper(forUser: user)
             }
         }
+    }
+}
+
+extension TweetController: ActionSheetLauncherDelegate {
+    func didSelect(option: ActionSheetOptions) {
+        print("DEBUG: Option in controller is \(option.description)")
     }
 }
