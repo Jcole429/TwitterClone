@@ -19,7 +19,7 @@ class UploadTweetController: UIViewController {
     private lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .twitterBlue
-        button.setTitle("Tweet", for: .normal)
+        button.setTitle(viewModel.actionButtonTitle, for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.setTitleColor(.white, for: .normal)
@@ -43,7 +43,21 @@ class UploadTweetController: UIViewController {
         return iv
     }()
     
-    private let captionTextView = CaptionTextView()
+    private lazy var replyLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .lightGray
+        label.setDimensions(width: view.frame.width)
+        label.isHidden = !viewModel.shouldShowReplyLabel
+        label.text = viewModel.replyText ?? ""
+        return label
+    }()
+    
+    private lazy var captionTextView: CaptionTextView = {
+        let captionTextView = CaptionTextView()
+        captionTextView.placeholderLabel.text = viewModel.placeholderText
+        return captionTextView
+    }()
     
     //MARK: - Lifecycle
     
@@ -86,13 +100,18 @@ class UploadTweetController: UIViewController {
         view.backgroundColor = .white
         configureNavigationBar()
         
-        let stack = UIStackView(arrangedSubviews: [profileImageView, captionTextView])
-        stack.axis = .horizontal
+        let imageCaptionStack = UIStackView(arrangedSubviews: [profileImageView, captionTextView])
+        imageCaptionStack.axis = .horizontal
+        imageCaptionStack.spacing = 12
+        imageCaptionStack.alignment = .leading
+        
+        let stack = UIStackView(arrangedSubviews: [replyLabel, imageCaptionStack])
+        stack.axis = .vertical
         stack.spacing = 12
-        stack.alignment = .leading
         
         view.addSubview(stack)
         stack.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 16, paddingLeft: 16, paddingRight: 16)
+        
     }
     
     func configureNavigationBar() {
