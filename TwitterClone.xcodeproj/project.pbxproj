@@ -46,6 +46,7 @@
 		B42556BC26FBF74B00069D55 /* UploadTweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BB26FBF74B00069D55 /* UploadTweetViewModel.swift */; };
 		B42556BE26FCE9BB00069D55 /* ActionSheetLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BD26FCE9BB00069D55 /* ActionSheetLauncher.swift */; };
 		B42556C026FD0CAC00069D55 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */; };
+		B42556C226FD150F00069D55 /* ActionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		B42556BB26FBF74B00069D55 /* UploadTweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetViewModel.swift; sourceTree = "<group>"; };
 		B42556BD26FCE9BB00069D55 /* ActionSheetLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLauncher.swift; sourceTree = "<group>"; };
 		B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
+		B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				B4201E6D26F8D70F00249531 /* TweetViewModel.swift */,
 				B4201E7726F910EB00249531 /* ProfileHeaderViewModel.swift */,
 				B42556BB26FBF74B00069D55 /* UploadTweetViewModel.swift */,
+				B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				B4201E6E26F8D70F00249531 /* TweetViewModel.swift in Sources */,
 				B4201E6026F7966E00249531 /* User.swift in Sources */,
 				B4201E2726F232CE00249531 /* SceneDelegate.swift in Sources */,
+				B42556C226FD150F00069D55 /* ActionSheetViewModel.swift in Sources */,
 				B4201E4126F2344C00249531 /* MainTabController.swift in Sources */,
 				B42556BA26FA998B00069D55 /* TweetHeader.swift in Sources */,
 				B4201E4E26F28A0900249531 /* LoginController.swift in Sources */,
