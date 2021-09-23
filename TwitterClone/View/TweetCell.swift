@@ -18,11 +18,12 @@ class TweetCell: UICollectionViewCell {
     // MARK: - UI Constants
     
     private static var profileImageSideLength: CGFloat = 48
+    private static var profileImagePaddingTop: CGFloat = 8
     private static var profileImagePaddingLeft: CGFloat = 8
+    private static var captionStackPaddingTop: CGFloat = 8
     private static var captionStackPaddingLeft: CGFloat = 12
     private static var captionStackPaddingRight: CGFloat = 12
     
-    private static var infoLabelPaddingTop: CGFloat = 8
     private static var infoLabelHeight: CGFloat = Utilities().calculateSizeOfOneLineLabel(withFontSize: 14).height
     private static var captionStackSpacing: CGFloat = 4
     private static var actionStackPaddingTop: CGFloat = 12
@@ -34,7 +35,7 @@ class TweetCell: UICollectionViewCell {
     
     static var captionUnusableWidth: CGFloat = profileImageSideLength + profileImagePaddingLeft + captionStackPaddingLeft + captionStackPaddingRight
     
-    static var captionUnusableHeight: CGFloat = infoLabelPaddingTop + infoLabelHeight + captionStackSpacing + actionStackPaddingTop + TweetCellButton.buttonSideLength + actionStackPaddingBottom + dividerPaddingTop + dividerHeight
+    static var captionUnusableHeight: CGFloat = captionStackPaddingTop + infoLabelHeight + captionStackSpacing + actionStackPaddingTop + TweetCellButton.buttonSideLength + actionStackPaddingBottom + dividerPaddingTop + dividerHeight
     
     // MARK: - Properties
     
@@ -101,7 +102,7 @@ class TweetCell: UICollectionViewCell {
         backgroundColor = .white
         
         addSubview(profileImageView)
-        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: TweetCell.infoLabelPaddingTop, paddingLeft: TweetCell.profileImagePaddingLeft)
+        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: TweetCell.profileImagePaddingTop, paddingLeft: TweetCell.profileImagePaddingLeft)
         
         let captionStack = UIStackView(arrangedSubviews: [infoLabel, captionLabel])
         captionStack.axis = .vertical
@@ -109,7 +110,7 @@ class TweetCell: UICollectionViewCell {
         captionStack.spacing = TweetCell.captionStackSpacing
         
         addSubview(captionStack)
-        captionStack.anchor(top: topAnchor, left: profileImageView.rightAnchor, right: rightAnchor, paddingLeft: TweetCell.captionStackPaddingLeft, paddingRight: TweetCell.captionStackPaddingRight)
+        captionStack.anchor(top: topAnchor, left: profileImageView.rightAnchor, right: rightAnchor, paddingTop: TweetCell.captionStackPaddingTop, paddingLeft: TweetCell.captionStackPaddingLeft, paddingRight: TweetCell.captionStackPaddingRight)
         
         infoLabel.font = UIFont.systemFont(ofSize: TweetCell.captionFontSize)
         
