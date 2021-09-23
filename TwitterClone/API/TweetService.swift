@@ -10,7 +10,7 @@ import Firebase
 struct TweetService {
     static let shared = TweetService()
     
-    func uploadTweet(caption: String, type: UploadTweetConfiguration, completion: @escaping(Error?, DatabaseReference) -> Void) {
+    func uploadTweet(caption: String, type: UploadTweetConfiguration, completion: @escaping(DatabaseCompletion)) {
         let uid = UserService.shared.fetchCurrentUserUid()
         
         let values = ["uid": uid,
@@ -26,7 +26,7 @@ struct TweetService {
                 DB_USER_TWEETS_REF.child(uid).updateChildValues([tweetID: 0], withCompletionBlock: completion)
             }
         case .reply(let tweet):
-            DB_USER_TWEET_REPLIES_REF.child(tweet.tweetID).childByAutoId().updateChildValues(values, withCompletionBlock: completion)
+            DB_TWEET_REPLIES_REF.child(tweet.tweetID).childByAutoId().updateChildValues(values, withCompletionBlock: completion)
         }
     }
     
@@ -55,10 +55,27 @@ struct TweetService {
                 guard let uid = dictionary["uid"] as? String else {return}
                 
                 UserService.shared.fetchUser(uid: uid) { user in
-                    let tweet = Tweet(user: user, tweetID: snapshot.key, dictionary: dictionary)
+                    let tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
                     tweets.append(tweet)
                     completion(tweets)
                 }
+            }
+        }
+    }
+    
+    func fetchReplies(forTweet tweet: Tweet, completion: @escaping([Tweet]) -> Void) {
+        var tweets = [Tweet]()
+        
+        DB_TWEET_REPLIES_REF.child(tweet.tweetID).observe(.childAdded) { snapshot in
+            guard let dictionary = snapshot.value as? [String: Any] else {return}
+            guard let uid = dictionary["uid"] as? String else {return}
+            
+            let tweetID = snapshot.key
+            
+            UserService.shared.fetchUser(uid: uid) { user in
+                let tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
+                tweets.append(tweet)
+                completion(tweets)
             }
         }
     }
