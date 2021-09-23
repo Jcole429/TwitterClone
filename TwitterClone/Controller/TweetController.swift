@@ -118,6 +118,7 @@ extension TweetController: TweetHeaderDelegate {
                 var user = self.tweet.user
                 user.isFollowed = isFollowed
                 self.actionSheetLauncher = ActionSheetLauncher(user: user)
+                self.actionSheetLauncher.show()
             }
         }
     }
