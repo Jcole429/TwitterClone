@@ -11,6 +11,7 @@ import SDWebImage
 protocol TweetCellDelegate: AnyObject {
     func handleProfileImageTapped(_ cell: TweetCell)
     func handleReplyTapped(_ cell: TweetCell)
+    func handleLikeTapped(_ cell: TweetCell)
 }
 
 class TweetCell: UICollectionViewCell {
@@ -147,7 +148,7 @@ class TweetCell: UICollectionViewCell {
     }
     
     @objc func handleLikeTapped() {
-        print("DEBUG: Handling")
+        delegate?.handleLikeTapped(self)
     }
     
     @objc func handleShareTapped() {
