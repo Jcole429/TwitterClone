@@ -47,6 +47,7 @@
 		B42556BE26FCE9BB00069D55 /* ActionSheetLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BD26FCE9BB00069D55 /* ActionSheetLauncher.swift */; };
 		B42556C026FD0CAC00069D55 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */; };
 		B42556C226FD150F00069D55 /* ActionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */; };
+		B42556C626FE3C8200069D55 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C526FE3C8200069D55 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		B42556BD26FCE9BB00069D55 /* ActionSheetLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLauncher.swift; sourceTree = "<group>"; };
 		B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
 		B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewModel.swift; sourceTree = "<group>"; };
+		B42556C526FE3C8200069D55 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				B4201E5F26F7966E00249531 /* User.swift */,
 				B4201E6726F7D99800249531 /* Tweet.swift */,
 				B4201E7926F9243A00249531 /* ProfileFilterOptions.swift */,
+				B42556C526FE3C8200069D55 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				B42556BC26FBF74B00069D55 /* UploadTweetViewModel.swift in Sources */,
 				B4201E6C26F7EF9E00249531 /* TweetCellButton.swift in Sources */,
 				B42556B626FA213600069D55 /* UserCell.swift in Sources */,
+				B42556C626FE3C8200069D55 /* Notification.swift in Sources */,
 				B4201E6226F7C08200249531 /* UploadTweetController.swift in Sources */,
 				B4201E7626F904B600249531 /* ProfileFilterCell.swift in Sources */,
 				B4201E6E26F8D70F00249531 /* TweetViewModel.swift in Sources */,
