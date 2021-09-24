@@ -38,9 +38,12 @@ struct TweetService {
             guard let uid = dictionary["uid"] as? String else {return}
             
             UserService.shared.fetchUser(uid: uid) { user in
-                let tweet = Tweet(user: user, tweetID: snapshot.key, dictionary: dictionary)
-                tweets.append(tweet)
-                completion(tweets)
+                var tweet = Tweet(user: user, tweetID: snapshot.key, dictionary: dictionary)
+                TweetService.shared.checkIfUserLikedTweet(tweet: tweet) { didLike in
+                    tweet.didLike = didLike
+                    tweets.append(tweet)
+                    completion(tweets)
+                }
             }
         }
     }
@@ -55,9 +58,12 @@ struct TweetService {
                 guard let uid = dictionary["uid"] as? String else {return}
                 
                 UserService.shared.fetchUser(uid: uid) { user in
-                    let tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
-                    tweets.append(tweet)
-                    completion(tweets)
+                    var tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
+                    TweetService.shared.checkIfUserLikedTweet(tweet: tweet) { didLike in
+                        tweet.didLike = didLike
+                        tweets.append(tweet)
+                        completion(tweets)
+                    }
                 }
             }
         }
@@ -95,6 +101,14 @@ struct TweetService {
             DB_USER_LIKES_REF.child(uid).updateChildValues([tweet.tweetID: 0]) { error, ref in
                 DB_TWEET_LIKES_REF.child(tweet.tweetID).updateChildValues([uid: 0], withCompletionBlock: completion)
             }
+        }
+    }
+    
+    func checkIfUserLikedTweet(tweet: Tweet, completion: @escaping(Bool) -> Void) {
+        guard let uid = UserService.shared.fetchCurrentUserUid() else {return}
+        
+        DB_USER_LIKES_REF.child(uid).child(tweet.tweetID).observeSingleEvent(of: .value) { snapshot in
+            completion(snapshot.exists())
         }
     }
 }
