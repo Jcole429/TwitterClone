@@ -14,6 +14,8 @@ let DB_TWEET_REPLIES_REF = DB_REF.child("tweet-replies")
 let DB_USER_TWEETS_REF = DB_REF.child("user-tweets")
 let DB_USER_FOLLOWERS_REF = DB_REF.child("user-followers")
 let DB_USER_FOLLOWING_REF = DB_REF.child("user-following")
+let DB_USER_LIKES_REF = DB_REF.child("user-likes")
+let DB_TWEET_LIKES_REF = DB_REF.child("tweet-likes")
 
 let STORAGE_REF = Storage.storage().reference()
 let STORAGE_PROFILE_IMAGES_REF = STORAGE_REF.child("profile_images")

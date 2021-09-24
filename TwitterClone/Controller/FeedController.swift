@@ -125,8 +125,13 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
 
 extension FeedController: TweetCellDelegate {
     func handleLikeTapped(_ cell: TweetCell) {
-        cell.tweet?.didLike.toggle()
-        print("DEBUG: Is tweet liked: \(cell.tweet?.didLike)")
+        guard let tweet = cell.tweet else {return}
+        
+        TweetService.shared.likeTweet(tweet: tweet) { error, ref in
+            cell.tweet?.didLike.toggle()
+            let likes = tweet.didLike ? tweet.likes - 1 : tweet.likes + 1
+            cell.tweet?.likes = likes
+        }
     }
     
     
