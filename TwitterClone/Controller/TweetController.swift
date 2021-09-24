@@ -14,7 +14,11 @@ class TweetController: UICollectionViewController {
     
     // MARK: - Properties
     
-    private let tweet: Tweet
+    private var tweet: Tweet {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     private var actionSheetLauncher: ActionSheetLauncher!
     private var replies = [Tweet]() {
         didSet { collectionView.reloadData() }
@@ -35,6 +39,7 @@ class TweetController: UICollectionViewController {
         super.viewDidLoad()
         configureCollectionView()
         fetchReplies()
+        updateTweet()
     }
     
     // MARK: - API
@@ -46,6 +51,12 @@ class TweetController: UICollectionViewController {
     }
     
     // MARK: - Helpers
+    
+    func updateTweet() {
+        TweetService.shared.fetchTweet(tweetID: tweet.tweetID) { tweet in
+            self.tweet = tweet
+        }
+    }
     
     func configureCollectionView() {
         collectionView.backgroundColor = .white
