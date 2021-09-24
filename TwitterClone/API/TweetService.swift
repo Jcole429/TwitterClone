@@ -34,16 +34,9 @@ struct TweetService {
         var tweets = [Tweet]()
         
         DB_TWEETS_REF.observe(.childAdded) { snapshot in
-            guard let dictionary = snapshot.value as? [String: Any] else {return}
-            guard let uid = dictionary["uid"] as? String else {return}
-            
-            UserService.shared.fetchUser(uid: uid) { user in
-                var tweet = Tweet(user: user, tweetID: snapshot.key, dictionary: dictionary)
-                TweetService.shared.checkIfUserLikedTweet(tweet: tweet) { didLike in
-                    tweet.didLike = didLike
-                    tweets.append(tweet)
-                    completion(tweets)
-                }
+            convertSnapshotToTweet(snapshot: snapshot) { tweet in
+                tweets.append(tweet)
+                completion(tweets)
             }
         }
     }
@@ -52,19 +45,10 @@ struct TweetService {
         var tweets = [Tweet]()
         DB_USER_TWEETS_REF.child(user.uid).observe(.childAdded) { snapshot in
             let tweetID = snapshot.key
-            
-            DB_TWEETS_REF.child(tweetID).observeSingleEvent(of: .value) { snapshot in
-                guard let dictionary = snapshot.value as? [String: Any] else {return}
-                guard let uid = dictionary["uid"] as? String else {return}
-                
-                UserService.shared.fetchUser(uid: uid) { user in
-                    var tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
-                    TweetService.shared.checkIfUserLikedTweet(tweet: tweet) { didLike in
-                        tweet.didLike = didLike
-                        tweets.append(tweet)
-                        completion(tweets)
-                    }
-                }
+
+            fetchTweet(tweetID: tweetID) { tweet in
+                tweets.append(tweet)
+                completion(tweets)
             }
         }
     }
@@ -73,13 +57,7 @@ struct TweetService {
         var tweets = [Tweet]()
         
         DB_TWEET_REPLIES_REF.child(tweet.tweetID).observe(.childAdded) { snapshot in
-            guard let dictionary = snapshot.value as? [String: Any] else {return}
-            guard let uid = dictionary["uid"] as? String else {return}
-            
-            let tweetID = snapshot.key
-            
-            UserService.shared.fetchUser(uid: uid) { user in
-                let tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
+            convertSnapshotToTweet(snapshot: snapshot) { tweet in
                 tweets.append(tweet)
                 completion(tweets)
             }
@@ -99,7 +77,10 @@ struct TweetService {
             }
         } else {
             DB_USER_LIKES_REF.child(uid).updateChildValues([tweet.tweetID: 0]) { error, ref in
-                DB_TWEET_LIKES_REF.child(tweet.tweetID).updateChildValues([uid: 0], withCompletionBlock: completion)
+                DB_TWEET_LIKES_REF.child(tweet.tweetID).updateChildValues([uid: 0]) { error, reference in
+                    completion(error, reference)
+                    NotificationService.shared.uploadNotification(type: .like)
+                }
             }
         }
     }
@@ -109,6 +90,28 @@ struct TweetService {
         
         DB_USER_LIKES_REF.child(uid).child(tweet.tweetID).observeSingleEvent(of: .value) { snapshot in
             completion(snapshot.exists())
+        }
+    }
+    
+    func fetchTweet(tweetID: String, completion: @escaping(Tweet) -> Void) {
+        DB_TWEETS_REF.child(tweetID).observeSingleEvent(of: .value) { snapshot in
+            convertSnapshotToTweet(snapshot: snapshot) { tweet in
+                completion(tweet)
+            }
+        }
+    }
+    
+    func convertSnapshotToTweet(snapshot: DataSnapshot, completion: @escaping(Tweet) -> Void) {
+        guard let dictionary = snapshot.value as? [String: Any] else {return}
+        guard let uid = dictionary["uid"] as? String else {return}
+        let tweetID = snapshot.key
+        
+        UserService.shared.fetchUser(uid: uid) { user in
+            var tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
+            TweetService.shared.checkIfUserLikedTweet(tweet: tweet) { didLike in
+                tweet.didLike = didLike
+                completion(tweet)
+            }
         }
     }
 }
