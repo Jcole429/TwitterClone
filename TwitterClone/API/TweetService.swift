@@ -11,7 +11,7 @@ struct TweetService {
     static let shared = TweetService()
     
     func uploadTweet(caption: String, type: UploadTweetConfiguration, completion: @escaping(DatabaseCompletion)) {
-        let uid = UserService.shared.fetchCurrentUserUid()
+        guard let uid = UserService.shared.fetchCurrentUserUid() else {return}
         
         let values = ["uid": uid,
                       "timestamp": Int(NSDate().timeIntervalSince1970),
@@ -81,7 +81,7 @@ struct TweetService {
     }
     
     func likeTweet(tweet: Tweet, completion: @escaping(DatabaseCompletion)) {
-        guard let uid = Auth.auth().currentUser?.uid else {return}
+        guard let uid = UserService.shared.fetchCurrentUserUid() else {return}
         
         let likes = tweet.didLike ? tweet.likes - 1 : tweet.likes + 1
         

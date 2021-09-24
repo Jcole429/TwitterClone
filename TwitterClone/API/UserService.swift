@@ -12,13 +12,13 @@ typealias DatabaseCompletion = (Error?, DatabaseReference) -> Void
 struct UserService {
     static let shared = UserService()
     
-    func fetchCurrentUserUid() -> String {
-        guard let uid = Auth.auth().currentUser?.uid else {return ""}
-        return uid
+    func fetchCurrentUserUid() -> String? {
+        return Auth.auth().currentUser?.uid
     }
     
     func fetchCurrentUser(completion: @escaping(User) -> Void) {
-        fetchUser(uid: fetchCurrentUserUid(), completion: completion)
+        guard let uid = fetchCurrentUserUid() else {return}
+        fetchUser(uid: uid, completion: completion)
     }
     
     func fetchUser(uid: String, completion: @escaping(User) -> Void){
@@ -43,21 +43,21 @@ struct UserService {
     }
     
     func followUser(uid: String, completion: @escaping(DatabaseCompletion)) {
-        let currentUid = UserService.shared.fetchCurrentUserUid()
+        guard let currentUid = UserService.shared.fetchCurrentUserUid() else {return}
         DB_USER_FOLLOWING_REF.child(currentUid).updateChildValues([uid: 0]) { error, ref in
             DB_USER_FOLLOWERS_REF.child(uid).updateChildValues([currentUid: 0], withCompletionBlock: completion)
         }
     }
     
     func unfollowUser(uid: String, completion: @escaping(DatabaseCompletion)) {
-        let currentUid = UserService.shared.fetchCurrentUserUid()
+        guard let currentUid = UserService.shared.fetchCurrentUserUid() else {return}
         DB_USER_FOLLOWING_REF.child(currentUid).child(uid).removeValue { error, ref in
             DB_USER_FOLLOWERS_REF.child(uid).child(currentUid).removeValue(completionBlock: completion)
         }
     }
     
     func checkIfUserIsFollowed(uid: String, completion: @escaping(Bool) -> Void) {
-        let currentUid = UserService.shared.fetchCurrentUserUid()
+        guard let currentUid = UserService.shared.fetchCurrentUserUid() else {return}
         DB_USER_FOLLOWING_REF.child(currentUid).child(uid).observeSingleEvent(of: .value) { snapshot in
             completion(snapshot.exists())
         }
