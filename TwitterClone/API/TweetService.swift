@@ -79,7 +79,7 @@ struct TweetService {
             DB_USER_LIKES_REF.child(uid).updateChildValues([tweet.tweetID: 0]) { error, ref in
                 DB_TWEET_LIKES_REF.child(tweet.tweetID).updateChildValues([uid: 0]) { error, reference in
                     completion(error, reference)
-                    NotificationService.shared.uploadNotification(type: .like)
+                    NotificationService.shared.uploadNotification(type: .like, tweet: tweet)
                 }
             }
         }

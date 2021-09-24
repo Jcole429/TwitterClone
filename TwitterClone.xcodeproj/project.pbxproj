@@ -48,6 +48,7 @@
 		B42556C026FD0CAC00069D55 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */; };
 		B42556C226FD150F00069D55 /* ActionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */; };
 		B42556C626FE3C8200069D55 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C526FE3C8200069D55 /* Notification.swift */; };
+		B42556C826FE3F0E00069D55 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C726FE3F0E00069D55 /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
 		B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewModel.swift; sourceTree = "<group>"; };
 		B42556C526FE3C8200069D55 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		B42556C726FE3F0E00069D55 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				B4201E5B26F4245100249531 /* AuthService.swift */,
 				B4201E5D26F5840C00249531 /* UserService.swift */,
 				B4201E6526F7D61500249531 /* TweetService.swift */,
+				B42556C726FE3F0E00069D55 /* NotificationService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				B4201E4926F2365C00249531 /* ConversationsController.swift in Sources */,
 				B42556BE26FCE9BB00069D55 /* ActionSheetLauncher.swift in Sources */,
 				B4201E5226F2988500249531 /* Utilities.swift in Sources */,
+				B42556C826FE3F0E00069D55 /* NotificationService.swift in Sources */,
 				B4201E2526F232CE00249531 /* AppDelegate.swift in Sources */,
 				B42556C026FD0CAC00069D55 /* ActionSheetCell.swift in Sources */,
 				B4201E4B26F2826300249531 /* Extensions.swift in Sources */,
