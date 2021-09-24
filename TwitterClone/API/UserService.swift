@@ -42,10 +42,15 @@ struct UserService {
         }
     }
     
-    func followUser(uid: String, completion: @escaping(DatabaseCompletion)) {
+    func followUser(user: User, completion: @escaping(DatabaseCompletion)) {
         guard let currentUid = UserService.shared.fetchCurrentUserUid() else {return}
-        DB_USER_FOLLOWING_REF.child(currentUid).updateChildValues([uid: 0]) { error, ref in
-            DB_USER_FOLLOWERS_REF.child(uid).updateChildValues([currentUid: 0], withCompletionBlock: completion)
+        DB_USER_FOLLOWING_REF.child(currentUid).updateChildValues([user.uid: 0]) { error, ref in
+            DB_USER_FOLLOWERS_REF.child(user.uid).updateChildValues([currentUid: 0]) { error, ref in
+                completion(error, ref)
+                if error == nil {
+                    NotificationService.shared.uploadNotification(type: .follow, user: user)
+                }
+            }
         }
     }
     

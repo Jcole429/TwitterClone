@@ -133,7 +133,7 @@ extension ProfileController: ProfileHeaderDelegate {
                 self.user.isFollowed = false
             }
         } else {
-            UserService.shared.followUser(uid: user.uid) { ref, error in
+            UserService.shared.followUser(user: user) { ref, error in
                 self.fetchUserStats()
                 self.user.isFollowed = true
             }

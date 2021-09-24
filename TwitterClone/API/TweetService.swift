@@ -26,7 +26,12 @@ struct TweetService {
                 DB_USER_TWEETS_REF.child(uid).updateChildValues([tweetID: 0], withCompletionBlock: completion)
             }
         case .reply(let tweet):
-            DB_TWEET_REPLIES_REF.child(tweet.tweetID).childByAutoId().updateChildValues(values, withCompletionBlock: completion)
+            DB_TWEET_REPLIES_REF.child(tweet.tweetID).childByAutoId().updateChildValues(values) { error, ref in
+                completion(error, ref)
+                if error == nil {
+                    NotificationService.shared.uploadNotification(type: .reply, tweet: tweet)
+                }
+            }
         }
     }
     

@@ -144,7 +144,7 @@ extension TweetController: ActionSheetLauncherDelegate {
     func didSelect(option: ActionSheetOptions) {
         switch option {
         case .follow(let user):
-            UserService.shared.followUser(uid: user.uid) { error, ref in
+            UserService.shared.followUser(user: user) { error, ref in
                 print("DEBUG: Followed \(user.username)")
             }
         case .unfollow(let user):
