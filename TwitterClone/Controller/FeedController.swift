@@ -128,9 +128,13 @@ extension FeedController: TweetCellDelegate {
         guard let tweet = cell.tweet else {return}
         
         TweetService.shared.likeTweet(tweet: tweet) { error, ref in
-            cell.tweet?.didLike.toggle()
-            let likes = tweet.didLike ? tweet.likes - 1 : tweet.likes + 1
-            cell.tweet?.likes = likes
+            if let error = error {
+                print("DEBUG: Error liking tweet: \(error)")
+            } else {
+                cell.tweet?.didLike.toggle()
+                let likes = tweet.didLike ? tweet.likes - 1 : tweet.likes + 1
+                cell.tweet?.likes = likes
+            }
         }
     }
     
