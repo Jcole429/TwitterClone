@@ -237,6 +237,8 @@ class TweetHeader: UICollectionReusableView {
         likesLabel.attributedText = viewModel.likesAttributedString
         retweetsLabel.attributedText = viewModel.retweetsAttributedString
         profileImageView.sd_setImage(with: viewModel.profileImageUrl, completed: nil)
+        likeButton.setImage(viewModel.likeButtonImage, for: .normal)
+        likeButton.tintColor = viewModel.likeButtonTintColor
     }
     
     func actionStackButton(withImageName imageName: String) -> UIButton {
