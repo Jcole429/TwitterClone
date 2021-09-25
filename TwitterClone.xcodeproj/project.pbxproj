@@ -50,6 +50,7 @@
 		B42556C626FE3C8200069D55 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C526FE3C8200069D55 /* Notification.swift */; };
 		B42556C826FE3F0E00069D55 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C726FE3F0E00069D55 /* NotificationService.swift */; };
 		B42556CA26FF5DBC00069D55 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C926FF5DBC00069D55 /* NotificationCell.swift */; };
+		B42556CC26FF6EF100069D55 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556CB26FF6EF100069D55 /* NotificationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		B42556C526FE3C8200069D55 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B42556C726FE3F0E00069D55 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		B42556C926FF5DBC00069D55 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		B42556CB26FF6EF100069D55 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				B4201E7726F910EB00249531 /* ProfileHeaderViewModel.swift */,
 				B42556BB26FBF74B00069D55 /* UploadTweetViewModel.swift */,
 				B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */,
+				B42556CB26FF6EF100069D55 /* NotificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 			files = (
 				B4201E7A26F9243A00249531 /* ProfileFilterOptions.swift in Sources */,
 				B4201E5E26F5840C00249531 /* UserService.swift in Sources */,
+				B42556CC26FF6EF100069D55 /* NotificationViewModel.swift in Sources */,
 				B4201E4726F2365200249531 /* NotificationsController.swift in Sources */,
 				B4201E6426F7CC2600249531 /* CaptionTextView.swift in Sources */,
 				B4201E4926F2365C00249531 /* ConversationsController.swift in Sources */,
