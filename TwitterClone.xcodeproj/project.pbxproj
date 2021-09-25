@@ -49,6 +49,7 @@
 		B42556C226FD150F00069D55 /* ActionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */; };
 		B42556C626FE3C8200069D55 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C526FE3C8200069D55 /* Notification.swift */; };
 		B42556C826FE3F0E00069D55 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C726FE3F0E00069D55 /* NotificationService.swift */; };
+		B42556CA26FF5DBC00069D55 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42556C926FF5DBC00069D55 /* NotificationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		B42556C126FD150F00069D55 /* ActionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewModel.swift; sourceTree = "<group>"; };
 		B42556C526FE3C8200069D55 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B42556C726FE3F0E00069D55 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		B42556C926FF5DBC00069D55 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				B42556B526FA213600069D55 /* UserCell.swift */,
 				B42556B926FA998B00069D55 /* TweetHeader.swift */,
 				B42556BF26FD0CAC00069D55 /* ActionSheetCell.swift */,
+				B42556C926FF5DBC00069D55 /* NotificationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				B4201E7626F904B600249531 /* ProfileFilterCell.swift in Sources */,
 				B4201E6E26F8D70F00249531 /* TweetViewModel.swift in Sources */,
 				B4201E6026F7966E00249531 /* User.swift in Sources */,
+				B42556CA26FF5DBC00069D55 /* NotificationCell.swift in Sources */,
 				B4201E2726F232CE00249531 /* SceneDelegate.swift in Sources */,
 				B42556C226FD150F00069D55 /* ActionSheetViewModel.swift in Sources */,
 				B4201E4126F2344C00249531 /* MainTabController.swift in Sources */,
