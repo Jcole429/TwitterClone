@@ -128,15 +128,7 @@ extension TweetController: UICollectionViewDelegateFlowLayout {
 
 extension TweetController: TweetHeaderDelegate {
     func showActionSheet() {
-        if tweet.user.isCurrentUser {
-            showActionSheetHelper(forUser: tweet.user)
-        } else {
-            UserService.shared.checkIfUserIsFollowed(uid: tweet.user.uid) { isFollowed in
-                var user = self.tweet.user
-                user.isFollowed = isFollowed
-                self.showActionSheetHelper(forUser: user)
-            }
-        }
+        showActionSheetHelper(forUser: tweet.user)
     }
 }
 

@@ -127,7 +127,9 @@ extension ProfileController: ProfileHeaderDelegate {
         
         if self.user.isCurrentUser { return }
         
-        if self.user.isFollowed {
+        guard let isFollowed = user.isFollowed else {return}
+        
+        if isFollowed {
             UserService.shared.unfollowUser(uid: user.uid) { ref, error in
                 self.fetchUserStats()
                 self.user.isFollowed = false

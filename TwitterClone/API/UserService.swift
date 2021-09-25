@@ -25,9 +25,12 @@ struct UserService {
         DB_USERS_REF.child(uid).observeSingleEvent(of: .value) { snapshot in
             guard let dictionary = snapshot.value as? [String: AnyObject] else {return}
             
-            let user = User(uid: uid, dictionary: dictionary)
+            var user = User(uid: uid, dictionary: dictionary)
             
-            completion(user)
+            checkIfUserIsFollowed(uid: uid) { isFollowed in
+                user.isFollowed = isFollowed
+                completion(user)
+            }
         }
     }
     
