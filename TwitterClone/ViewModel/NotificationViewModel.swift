@@ -59,7 +59,7 @@ struct NotificationViewModel {
     var followButtonTitle: String {
         guard let isFollowed = user.isFollowed else {return ""}
         
-        return isFollowed ? "Unfollow" : "Follow"
+        return isFollowed ? "Following" : "Follow"
     }
     
     // MARK: Lifecycle

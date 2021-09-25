@@ -24,13 +24,13 @@ class NotificationsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        fetchNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barStyle = .default
+        fetchNotifications()
     }
     
     // MARK: - API
@@ -91,7 +91,26 @@ extension NotificationsController {
 
 extension NotificationsController: NotificationCellDelegate {
     func didTapFollowButton(_ cell: NotificationCell) {
-        print("DEBUG: Did tap follow")
+        guard let user = cell.notification?.user else {return}
+        guard let isFollowed = user.isFollowed else {return}
+        
+        if isFollowed {
+            UserService.shared.unfollowUser(uid: user.uid) { error, ref in
+                if let error = error {
+                    print("DEBUG: Error unfollowing user: \(error)")
+                    return
+                }
+                cell.notification?.user.isFollowed?.toggle()
+            }
+        } else {
+            UserService.shared.followUser(user: user) { error, ref in
+                if let error = error {
+                    print("DEBUG: Error following user: \(error)")
+                    return
+                }
+                cell.notification?.user.isFollowed?.toggle()
+            }
+        }
     }
     
     func didTapProfileImage(_ cell: NotificationCell) {

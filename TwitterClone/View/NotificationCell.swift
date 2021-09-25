@@ -50,7 +50,7 @@ class NotificationCell: UITableViewCell {
         button.backgroundColor = .white
         button.layer.borderColor = UIColor.twitterBlue.cgColor
         button.layer.borderWidth = 2
-        button.setDimensions(width: 88, height: 32)
+        button.setDimensions(width: 92, height: 32)
         button.makeCircle(sideLength: 32)
         button.addTarget(self, action: #selector(handleFollowTapped), for: .touchUpInside)
         return button
