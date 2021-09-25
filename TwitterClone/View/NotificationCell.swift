@@ -9,6 +9,7 @@ import UIKit
 
 protocol NotificationCellDelegate: AnyObject {
     func didTapProfileImage(_ cell: NotificationCell)
+    func didTapFollowButton(_ cell: NotificationCell)
 }
 
 class NotificationCell: UITableViewCell {
@@ -42,6 +43,19 @@ class NotificationCell: UITableViewCell {
         return iv
     }()
     
+    private lazy var followButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Loading", for: .normal)
+        button.setTitleColor(.twitterBlue, for: .normal)
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor.twitterBlue.cgColor
+        button.layer.borderWidth = 2
+        button.setDimensions(width: 88, height: 32)
+        button.makeCircle(sideLength: 32)
+        button.addTarget(self, action: #selector(handleFollowTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private let notificationLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
@@ -54,7 +68,7 @@ class NotificationCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        let stack = UIStackView(arrangedSubviews: [profileImageView, notificationLabel])
+        let stack = UIStackView(arrangedSubviews: [profileImageView, notificationLabel, followButton])
         stack.spacing = 8
         stack.axis = .horizontal
         stack.alignment = .center
@@ -74,6 +88,10 @@ class NotificationCell: UITableViewCell {
         delegate?.didTapProfileImage(self)
     }
     
+    @objc func handleFollowTapped() {
+        delegate?.didTapFollowButton(self)
+    }
+    
     // MARK: -  Helpers
     
     func configure() {
@@ -82,5 +100,7 @@ class NotificationCell: UITableViewCell {
         
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
         notificationLabel.attributedText = viewModel.notificationText
+        followButton.isHidden = viewModel.hideFollowButton
+        followButton.setTitle(viewModel.followButtonTitle, for: .normal)
     }
 }

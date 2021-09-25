@@ -90,6 +90,10 @@ extension NotificationsController {
 // MARK: - NotificationCellDelegate
 
 extension NotificationsController: NotificationCellDelegate {
+    func didTapFollowButton(_ cell: NotificationCell) {
+        print("DEBUG: Did tap follow")
+    }
+    
     func didTapProfileImage(_ cell: NotificationCell) {
         guard let user = cell.notification?.user else {return}
         
