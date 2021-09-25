@@ -40,7 +40,6 @@ class NotificationCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Some test notification message"
         return label
     }()
     
