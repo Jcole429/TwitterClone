@@ -38,4 +38,20 @@ struct NotificationService {
             print("DEBUG: Create mention notification")
         }
     }
+    
+    func fetchNotifications(completion: @escaping([Notification]) -> Void) {
+        var notifications = [Notification]()
+        guard let currentUid = UserService.shared.fetchCurrentUserUid() else {return}
+        
+        DB_NOTIFICATIONS_REF.child(currentUid).observe(.childAdded) { snapshot in
+            guard let dictionary = snapshot.value as? [String: AnyObject] else {return}
+            guard let notificationUid = dictionary["uid"] as? String else {return}
+            
+            UserService.shared.fetchUser(uid: notificationUid) { user in
+                let notification = Notification(user: user, dictionary: dictionary)
+                notifications.append(notification)
+                completion(notifications)
+            }
+        }
+    }
 }
