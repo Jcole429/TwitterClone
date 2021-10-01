@@ -143,7 +143,24 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
+        
+        let tweet = currentDataSource[indexPath.row]
+        
+        let captionUsableWidth = view.frame.width - TweetCell.captionUnusableWidth
+        
+        let captionHeight = Utilities().calculateSizeOfLabel(forWidth: captionUsableWidth, withFontSize: TweetCell.captionFontSize, withText: tweet.caption).height
+        
+        let tweetCellHeight = captionHeight + TweetCell.captionUnusableHeight
+        
+        return CGSize(width: view.frame.width, height: tweetCellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 
