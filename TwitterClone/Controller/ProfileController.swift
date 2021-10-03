@@ -62,6 +62,7 @@ class ProfileController: UICollectionViewController {
         fetchTweets()
         fetchLikedTweets()
         fetchUserStats()
+        fetchReplies()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +82,12 @@ class ProfileController: UICollectionViewController {
     func fetchLikedTweets() {
         TweetService.shared.fetchLikes(forUser: user) { tweets in
             self.likedTweets = tweets
+        }
+    }
+    
+    func fetchReplies() {
+        TweetService.shared.fetchReplies(forUSer: user) { tweets in
+            self.replies = tweets
         }
     }
     
